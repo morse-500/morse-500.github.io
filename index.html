@@ -39,9 +39,125 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+
+  <style>
+        .best-score-text {
+            color: #363636;
+            font-weight: bold;
+        }
+        .js-sort-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .js-sort-table th, .js-sort-table td {
+            padding: 8px 12px;
+            text-align: center;
+            border: 1px solid #dbdbdb;
+        }
+        .js-sort-table th {
+            background-color: #f5f5f5;
+            font-weight: bold;
+        }
+        .js-sort-table tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+        .human-row {
+            background-color: #fdf6e3 !important;
+        }
+        .top-tier {
+            background-color: #e6e6fa !important;
+        }
+        .open-source {
+            background-color: #e1f5fe !important;
+        }
+        .ext-link {
+            color: #3273dc;
+            text-decoration: none;
+        }
+        .ext-link:hover {
+            text-decoration: underline;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .feature-card {
+            background: #f8f9fa;
+            padding: 18px;
+            border-radius: 12px;
+            border-left: 4px solid #007bff;
+            height: fit-content;
+        }
+        .feature-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+        .feature-description {
+            color: #555;
+            margin: 0;
+            font-size: 0.95em;
+            line-height: 1.4;
+        }
+        .highlight {
+            background: linear-gradient(120deg, #a8e6cf 0%, #dcedc8 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        .intro {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            border-left: 4px solid #2196f3;
+        }
+        .reasoning-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .reasoning-item {
+            background: #fff5f5;
+            padding: 18px;
+            border-radius: 12px;
+            border-left: 4px solid #e53e3e;
+            font-size: 0.95em;
+            line-height: 1.4;
+        }
+        .reasoning-item strong {
+            color: #2d3748;
+        }
+        /* Ensure columns are equal height */
+        .columns.is-equal-height {
+            align-items: stretch;
+        }
+        .column {
+            display: flex;
+            flex-direction: column;
+        }
+        .column .content {
+            flex: 1;
+        }
+
+        html {
+          scroll-behavior: smooth;
+        }
+
+        /* Ensure the target element is visible */
+        #leaderboard {
+          scroll-margin-top: 20px; /* Adjust based on any fixed headers */
+        }
+    </style>
 </head>
 <body>
 
+  
 <!-- <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
@@ -168,9 +284,18 @@
                 <a href="https://huggingface.co/datasets/video-reasoning/morse-500"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
-                      <i class="far fa-images"></i>
+                      <!-- <i class="far fa-images"></i> -->
+                      <p style="font-size:18px">🤗</p>
                   </span>
                   <span>Data</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://morse-500.github.io/#leaderboard" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <p style="font-size:18px">🏆</p>
+                  </span>
+                  <span>Leaderboard</span>
                 </a>
               </span>
             </div>
@@ -190,7 +315,7 @@
                 type="video/mp4">
       </video> -->
       <h2 class="subtitle has-text-centered">
-        <span class="dnerf">MORSE-500</span> provides 500 programmatically generated video instances across six reasoning categories: mathematical, abstract, spatial, temporal, physical, and planning.
+        <span class="dnerf">MORSE-500</span> provides 500 programmatically generated video instances across six reasoning categories: abstract, mathematical,  physical, planning, spatial, and temporal.
       </h2>
     </div>
   </div>
@@ -354,7 +479,7 @@
 </section>
 
 
-<section class="section">
+<!-- <section class="section">
   <div class="container is-max-desktop">
 
     <div class="columns is-centered">
@@ -389,19 +514,19 @@
                 Pattern recognition, logical inference, symbolic reasoning
               </div>
               <div class="reasoning-item">
-                <strong>Spatial (20.0%)</strong><br>
+                <strong>Spatial (21.6%)</strong><br>
                 Object relationships, spatial transformations, 3D reasoning
               </div>
               <div class="reasoning-item">
-                <strong>Temporal (16.6%)</strong><br>
+                <strong>Temporal (16.0%)</strong><br>
                 Sequence understanding, causal inference over time
               </div>
               <div class="reasoning-item">
-                <strong>Physical (14.0%)</strong><br>
+                <strong>Physical (12.8%)</strong><br>
                 Object dynamics, causal interactions, physics laws
               </div>
               <div class="reasoning-item">
-                <strong>Planning (19.8%)</strong><br>
+                <strong>Planning (20.0%)</strong><br>
                 Multi-step reasoning, goal-directed problem solving
               </div>
             </div>
@@ -411,7 +536,92 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
+
+<section class="section">
+        <div class="container">
+            <div class="columns is-equal-height">
+                
+                <!-- Left Column: Key Features -->
+                <div class="column is-8">
+                    <h2 class="title is-3">Key Features</h2>
+                    <div class="content">
+                        <div class="intro">
+                            <p>MORSE-500 addresses critical limitations in existing multimodal reasoning benchmarks through several key innovations that push beyond static image analysis into <span class="highlight">dynamic video understanding</span>:</p>
+                        </div>
+
+                        <div class="features-grid">
+                            <div class="feature-card">
+                                <div class="feature-title">🚀 Fresh & Portable</div>
+                                <p class="feature-description">500 newly cooked video clips with CSV metadata that runs fast and streams efficiently</p>
+                            </div>
+
+                            <div class="feature-card">
+                                <div class="feature-title">📈 Scalable Difficulty</div>
+                                <p class="feature-description">Videos are generated programmatically so we can dial up complexity and release harder versions as models improve</p>
+                            </div>
+
+                            <div class="feature-card">
+                                <div class="feature-title">🎯 Diverse Categories</div>
+                                <p class="feature-description"><em>Abstract, Mathematical, Physical, Planning, Spatial, Temporal (+ Causal)</em> – evenly distributed across reasoning types that actually matter</p>
+                            </div>
+
+                            <div class="feature-card">
+                                <div class="feature-title">⏰ Temporal Complexity</div>
+                                <p class="feature-description">Video-based tasks requiring understanding of <span class="highlight">dynamic sequences, causal chains, and temporal relationships</span> that unfold over time – something static images simply cannot capture</p>
+                            </div>
+
+                            <div class="feature-card">
+                                <div class="feature-title">👁️ Pure Visual Reasoning</div>
+                                <p class="feature-description">Questions are baked right into the videos. No text crutches, no shortcuts – if you can't see it, you can't solve it</p>
+                            </div>
+
+                            <div class="feature-card">
+                                <div class="feature-title">🛠️ Developer-Friendly</div>
+                                <p class="feature-description">A "-view" subset streams directly on <strong>Hugging Face</strong> for quick browsing and debugging</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Reasoning Categories -->
+                <div class="column is-4">
+                    <h2 class="title is-3">Reasoning Categories</h2>
+                    <div class="columns is-centered">
+                        <div class="column content">
+                            <div class="reasoning-grid">
+                              <div class="reasoning-item">
+                                    <strong>Abstract (12.8%)</strong><br>
+                                    Pattern recognition, logical inference, symbolic reasoning
+                                </div>  
+                              <div class="reasoning-item">
+                                    <strong>Mathematical (16.8%)</strong><br>
+                                    Arithmetic operations, algebraic relations, quantitative comparisons
+                                </div>
+                                <div class="reasoning-item">
+                                    <strong>Physical (12.8%)</strong><br>
+                                    Object dynamics, causal interactions, physics laws
+                                </div>
+                                <div class="reasoning-item">
+                                    <strong>Planning (20.0%)</strong><br>
+                                    Multi-step reasoning, goal-directed problem solving
+                                </div>
+                                <div class="reasoning-item">
+                                    <strong>Spatial (21.6%)</strong><br>
+                                    Object relationships, spatial transformations, 3D reasoning
+                                </div>
+                                <div class="reasoning-item">
+                                    <strong>Temporal (16.0%)</strong><br>
+                                    Sequence understanding, causal inference over time
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
 
 <section class="section">
@@ -420,15 +630,14 @@
     <div class="columns is-centered">
       <div class="column is-full has-text-centered content">
  
-        <h2 class="title is-3" id="leaderboard_test">Leaderboard</h2>
+        <h2 class="title is-3" id="leaderboard">Leaderboard</h2>
         <div class="content">
  
           <table class="js-sort-table" id="results">
             <tr>
                 <td class="js-sort-number"><strong>Rank</strong></td>
                 <td class="js-sort-number"><strong>Model</strong></td>
-                <td class="js-sort-number"><strong>Method</strong></td>
-                <td class="js-sort-number"><strong>Source</strong></td>
+                <td class="js-sort-number"><strong>Model Type</strong></td>
                 <td class="js-sort-number"><strong>Date</strong></td>
                 <td class="js-sort-number"><strong><u>ALL</u></strong></td>
                 <td class="js-sort-number"><strong>Abstract</strong></td>
@@ -438,221 +647,284 @@
                 <td class="js-sort-number"><strong>Spatial</strong></td>
                 <td class="js-sort-number"><strong>Temporal</strong></td>
             </tr>
-            <tr>
+            <tr class="human-row">
+              <td>-</td>
+              <td><b>Human</b></td>
+              <td>Human 👤</td>
+              <td>2025-05-28</td>
+              <td><b class="best-score-text">55.4</b></td>
+              <td>37.5</td>
+              <td>45.5</td>
+              <td>56.3</td>
+              <td>56.0</td>
+              <td>73.1</td>
+              <td>55.2</td>                                
+            </tr>
+            <tr class="top-tier">
               <td>1</td>
-              <td><b class="best-score-text">Gemini 2.5 Pro 🥇</b></td>
-              <td>LMM 🖼️</td>
-              <td><a href="https://deepmind.google/technologies/gemini/" class="ext-link" style="font-size: 16px;">Link</a></td>
-              <td>2024-12-19</td>
-              <td><b class="best-score-text">15.8</b></td>
-              <td>6.3</td>
-              <td>32.2</td>
-              <td>28.0</td>
-              <td>2.0</td>
-              <td>5.6</td>
-              <td>26.7</td>                                
-            </tr>
-            <tr>
-              <td>2</td>
-              <td><b class="best-score-text">Gemini 1.5 Pro 🥈</b></td>
-              <td>LMM 🖼️</td>
-              <td><a href="https://deepmind.google/technologies/gemini/" class="ext-link" style="font-size: 16px;">Link</a></td>
-              <td>2024-05-14</td>
-              <td><b class="best-score-text">15.0</b></td>
+              <td><b class="best-score-text"><a href="https://openai.com/index/introducing-o3-and-o4-mini/" class="ext-link">o3</a> 🥇</b></td>
+              <td>Reasoning VLM 🖼️ 💭</td>
+              <td>2025-05-28</td>
+              <td><b class="best-score-text">23.6</b></td>
+              <td>23.4</td>
+              <td>27.4</td>
+              <td>28.1</td>
               <td>5.0</td>
-              <td>17.8</td>
-              <td>22.0</td>
-              <td>1.0</td>
-              <td>24.4</td>
-              <td>23.3</td>                                
+              <td>29.6</td>
+              <td>31.2</td>                                
             </tr>
-            <tr>
+            <tr class="top-tier">
+              <td>2</td>
+              <td><b class="best-score-text"><a href="https://openai.com/index/introducing-o3-and-o4-mini/" class="ext-link">o4-mini</a> 🥈</b></td>
+              <td>Reasoning VLM 🖼️ 💭</td>
+              <td>2025-05-28</td>
+              <td><b class="best-score-text">22.2</b></td>
+              <td>21.9</td>
+              <td>23.8</td>
+              <td>29.7</td>
+              <td>5.0</td>
+              <td>27.8</td>
+              <td>28.7</td>                                
+            </tr>
+            <tr class="top-tier">
               <td>3</td>
-              <td><b class="best-score-text">Gemini 2.5 Flash 🥉</b></td>
-              <td>LMM 🖼️</td>
-              <td><a href="https://deepmind.google/technologies/gemini/" class="ext-link" style="font-size: 16px;">Link</a></td>
-              <td>2024-12-11</td>
-              <td><b class="best-score-text">14.8</b></td>
-              <td>7.5</td>
-              <td>26.7</td>
-              <td>32.0</td>
-              <td>0.0</td>
-              <td>11.1</td>
-              <td>20.0</td>                                
+              <td><b class="best-score-text"><a href="https://deepmind.google/technologies/gemini/" class="ext-link">Gemini 2.5 Pro</a> 🥉</b></td>
+              <td>Reasoning VLM 🖼️ 💭</td>
+              <td>2025-05-28</td>
+              <td><b class="best-score-text">21.8</b></td>
+              <td>18.8</td>
+              <td>36.9</td>
+              <td>29.7</td>
+              <td>3.0</td>
+              <td>16.7</td>
+              <td>32.5</td>                                
             </tr>
-            <tr>
+            <tr class="top-tier">
               <td>4</td>
-              <td><b class="">Gemini 2.0 Flash</b></td>
-              <td>LMM 🖼️</td>
-              <td><a href="https://deepmind.google/technologies/gemini/" class="ext-link" style="font-size: 16px;">Link</a></td>
-              <td>2024-12-11</td>
-              <td><b class="">13.2</b></td>
-              <td>7.5</td>
-              <td>26.7</td>
-              <td>24.0</td>
-              <td>0.0</td>
-              <td>10.0</td>
-              <td>16.7</td>                                  
+              <td><b class=""><a href="https://openai.com/o1/" class="ext-link">o1</a></b></td>
+              <td>Reasoning VLM 🖼️ 💭</td>
+              <td>2025-05-28</td>
+              <td><b class="">19.8</b></td>
+              <td>17.2</td>
+              <td>22.6</td>
+              <td>28.1</td>
+              <td>5.0</td>
+              <td>23.1</td>
+              <td>26.2</td>                                  
             </tr>
-            <tr>
+            <tr class="top-tier">
               <td>5</td>
-              <td><b class="">Qwen2.5 VL 72B AWQ</b></td>
-              <td>LMM 🖼️</td>
-              <td><a href="https://github.com/QwenLM/Qwen2-VL" class="ext-link" style="font-size: 16px;">Link</a></td>
-              <td>2024-09-18</td>
-              <td><b class="">12.4</b></td>
-              <td>10.0</td>
-              <td>6.7</td>
-              <td>36.0</td>
+              <td><b class=""><a href="https://deepmind.google/technologies/gemini/" class="ext-link">Gemini 2.5 Flash</a></b></td>
+              <td>Reasoning VLM 🖼️ 💭</td>
+              <td>2025-05-28</td>
+              <td><b class="">19.2</b></td>
+              <td>9.4</td>
+              <td>35.7</td>
+              <td>28.1</td>
+              <td>1.0</td>
+              <td>24.1</td>
+              <td>18.8</td>                                  
+            </tr>
+            <tr class="top-tier">
+              <td>6</td>
+              <td><b class=""><a href="https://deepmind.google/technologies/gemini/" class="ext-link">Gemini 1.5 Pro</a></b></td>
+              <td>VLM 🎬</td>
+              <td>2025-05-28</td>
+              <td><b class="">18.8</b></td>
+              <td>12.5</td>
+              <td>21.4</td>
+              <td>26.6</td>
+              <td>1.0</td>
+              <td>26.9</td>
+              <td>26.2</td>                            
+            </tr>
+            <tr class="open-source">
+              <td>7</td>
+              <td><b class=""><a href="https://github.com/QwenLM/Qwen2-VL" class="ext-link">Qwen2.5 VL 72B</a></b></td>
+              <td>VLM 🎬</td>
+              <td>2025-05-28</td>
+              <td><b class="">17.8</b></td>
+              <td>6.2</td>
+              <td>21.4</td>
+              <td>34.4</td>
               <td>1.0</td>
               <td>22.2</td>
-              <td>10.0</td>                                  
+              <td>25.0</td>                                  
             </tr>
-            <tr>
-              <td>6</td>
-              <td><b class="">Qwen2.5 VL 72B</b></td>
-              <td>LMM 🖼️</td>
-              <td><a href="https://github.com/QwenLM/Qwen2-VL" class="ext-link" style="font-size: 16px;">Link</a></td>
-              <td>2024-09-18</td>
-              <td><b class="">12.2</b></td>
-              <td>3.8</td>
-              <td>13.3</td>
-              <td>32.0</td>
-              <td>0.0</td>
-              <td>16.7</td>
-              <td>16.7</td>                            
-            </tr>
-            <tr>
-              <td>7</td>
-              <td><b class="">Qwen2.5 VL 32B AWQ</b></td>
-              <td>LMM 🖼️</td>
-              <td><a href="https://github.com/QwenLM/Qwen2-VL" class="ext-link" style="font-size: 16px;">Link</a></td>
-              <td>2024-09-18</td>
-              <td><b class="">10.8</b></td>
-              <td>5.0</td>
-              <td>17.8</td>
-              <td>26.0</td>
-              <td>0.0</td>
-              <td>11.1</td>
-              <td>12.2</td>                                  
-            </tr>
-            <tr>
+            <tr class="top-tier">
               <td>8</td>
-              <td><b class="">Gemini 2.0 Flash-Lite</b></td>
-              <td>LMM 🖼️</td>
-              <td><a href="https://deepmind.google/technologies/gemini/" class="ext-link" style="font-size: 16px;">Link</a></td>
-              <td>2024-12-11</td>
-              <td><b class="">10.4</b></td>
-              <td>6.3</td>
-              <td>17.8</td>
-              <td>22.0</td>
-              <td>1.0</td>
-              <td>7.8</td>
-              <td>13.3</td>                                  
-            </tr>
-            <tr>
-              <td>9</td>
-              <td><b>Qwen2.5 VL 32B</b></td>
-              <td>LMM 🖼️</td>
-              <td><a href="https://github.com/QwenLM/Qwen2-VL" class="ext-link" style="font-size: 16px;">Link</a></td>
-              <td>2024-09-18</td>
-              <td><b>10.2</b></td>
-              <td>2.5</td>
-              <td>13.3</td>
-              <td>24.0</td>
-              <td>0.0</td>
-              <td>14.4</td>
-              <td>13.3</td>                               
-            </tr>
-            <tr>
-              <td>10</td>
-              <td><b>MiniCPM-o-2_6</b></td>
-              <td>LMM 🖼️</td>
-              <td><a href="https://github.com/OpenBMB/MiniCPM-o" class="ext-link" style="font-size: 16px;">Link</a></td>
-              <td>2024-11-21</td>
-              <td><b>8.4</b></td>
-              <td>1.3</td>
-              <td>12.2</td>
-              <td>20.0</td>
-              <td>0.0</td>
-              <td>13.3</td>
-              <td>8.9</td>                                 
-            </tr>
-            <tr>
-              <td>11</td>
-              <td><b>InternVL3 8B</b></td>
-              <td>LMM 🖼️</td>
-              <td><a href="https://github.com/OpenGVLab/InternVL" class="ext-link" style="font-size: 16px;">Link</a></td>
-              <td>2024-12-05</td>
-              <td><b>7.8</b></td>
-              <td>6.3</td>
-              <td>11.1</td>
-              <td>14.0</td>
-              <td>0.0</td>
-              <td>7.8</td>
-              <td>11.1</td>                                 
-            </tr>
-            <tr>
-              <td>12</td>
-              <td><b>Qwen2.5-Omni-7B</b></td>
-              <td>LMM 🖼️</td>
-              <td><a href="https://github.com/QwenLM/Qwen2.5" class="ext-link" style="font-size: 16px;">Link</a></td>
-              <td>2024-11-29</td>
-              <td><b>6.2</b></td>
-              <td>2.5</td>
-              <td>5.6</td>
-              <td>18.0</td>
-              <td>1.0</td>
-              <td>6.7</td>
-              <td>8.9</td>                                 
-            </tr>
-            <tr>
-              <td>13</td>
-              <td><b>LLaVA-NeXT-Video-7B</b></td>
-              <td>LMM 🖼️</td>
-              <td><a href="https://github.com/LLaVA-VL/LLaVA-NeXT" class="ext-link" style="font-size: 16px;">Link</a></td>
-              <td>2024-04-30</td>
-              <td><b>5.6</b></td>
-              <td>0.0</td>
-              <td>18.9</td>
+              <td><b class=""><a href="https://openai.com/gpt-4o/" class="ext-link">GPT 4o</a></b></td>
+              <td>Unified Model 🎭</td>
+              <td>2025-05-28</td>
+              <td><b class="">17.4</b></td>
+              <td>17.2</td>
+              <td>20.2</td>
+              <td>34.4</td>
               <td>4.0</td>
-              <td>0.0</td>
-              <td>4.4</td>
-              <td>5.6</td>                                 
+              <td>12.0</td>
+              <td>25.0</td>                                  
             </tr>
-            <tr>
-              <td>14</td>
-              <td><b>Qwen2.5 VL 7B</b></td>
-              <td>LMM 🖼️</td>
-              <td><a href="https://github.com/QwenLM/Qwen2-VL" class="ext-link" style="font-size: 16px;">Link</a></td>
-              <td>2024-09-18</td>
-              <td><b>4.4</b></td>
-              <td>3.8</td>
-              <td>5.6</td>
-              <td>18.0</td>
+            <tr class="open-source">
+              <td>9</td>
+              <td><b><a href="https://github.com/QwenLM/Qwen2-VL" class="ext-link">Qwen2.5 VL 32B AWQ</a></b></td>
+              <td>VLM 🎬</td>
+              <td>2025-05-28</td>
+              <td><b>16.8</b></td>
+              <td>14.1</td>
+              <td>23.8</td>
+              <td>34.4</td>
               <td>1.0</td>
-              <td>1.1</td>
-              <td>3.3</td>                                 
+              <td>15.7</td>
+              <td>18.8</td>                               
             </tr>
-            <tr>
+            <tr class="open-source">
+              <td>10</td>
+              <td><b><a href="https://github.com/QwenLM/Qwen2-VL" class="ext-link">Qwen2.5 VL 72B AWQ</a></b></td>
+              <td>VLM 🎬</td>
+              <td>2025-05-28</td>
+              <td><b>16.4</b></td>
+              <td>12.5</td>
+              <td>11.9</td>
+              <td>29.7</td>
+              <td>2.0</td>
+              <td>27.8</td>
+              <td>16.2</td>                                 
+            </tr>
+            <tr class="top-tier">
+              <td>11</td>
+              <td><b><a href="https://deepmind.google/technologies/gemini/" class="ext-link">Gemini 2.0 Flash</a></b></td>
+              <td>VLM 🎬</td>
+              <td>2025-05-28</td>
+              <td><b>16.0</b></td>
+              <td>12.5</td>
+              <td>29.8</td>
+              <td>28.1</td>
+              <td>0.0</td>
+              <td>13.0</td>
+              <td>18.8</td>                                 
+            </tr>
+            <tr class="open-source">
+              <td>12</td>
+              <td><b><a href="https://github.com/QwenLM/Qwen2-VL" class="ext-link">Qwen2.5 VL 32B</a></b></td>
+              <td>VLM 🎬</td>
+              <td>2025-05-28</td>
+              <td><b>15.6</b></td>
+              <td>9.4</td>
+              <td>19.0</td>
+              <td>29.7</td>
+              <td>2.0</td>
+              <td>16.7</td>
+              <td>21.2</td>                                 
+            </tr>
+            <tr class="open-source">
+              <td>13</td>
+              <td><b><a href="https://blog.google/technology/developers/gemma-3/" class="ext-link">Gemma 3 27b</a></b></td>
+              <td>VLM 🖼️</td>
+              <td>2025-05-28</td>
+              <td><b>14.6</b></td>
+              <td>20.3</td>
+              <td>20.2</td>
+              <td>25.0</td>
+              <td>1.0</td>
+              <td>13.0</td>
+              <td>15.0</td>                                 
+            </tr>
+            <tr class="top-tier">
+              <td>14</td>
+              <td><b><a href="https://deepmind.google/technologies/gemini/" class="ext-link">Gemini 2.0 Flash-Lite</a></b></td>
+              <td>VLM 🎬</td>
+              <td>2025-05-28</td>
+              <td><b>14.2</b></td>
+              <td>17.2</td>
+              <td>21.4</td>
+              <td>21.9</td>
+              <td>2.0</td>
+              <td>14.8</td>
+              <td>12.5</td>                                 
+            </tr>
+            <tr class="open-source">
               <td>15</td>
-              <td><b>Qwen2.5 VL 3B</b></td>
-              <td>LMM 🖼️</td>
-              <td><a href="https://github.com/QwenLM/Qwen2-VL" class="ext-link" style="font-size: 16px;">Link</a></td>
-              <td>2024-09-18</td>
-              <td><b>1.0</b></td>
-              <td>1.3</td>
-              <td>1.1</td>
+              <td><b><a href="https://github.com/OpenBMB/MiniCPM-o" class="ext-link">MiniCPM-o 2.6</a></b></td>
+              <td>VLM 🎬</td>
+              <td>2025-05-28</td>
+              <td><b>11.6</b></td>
+              <td>4.7</td>
+              <td>10.7</td>
+              <td>23.4</td>
+              <td>1.0</td>
+              <td>16.7</td>
+              <td>15.0</td>                                 
+            </tr>
+            <tr class="open-source">
+              <td>16</td>
+              <td><b><a href="https://github.com/QwenLM/Qwen2.5" class="ext-link">Qwen2.5 Omni 7B</a></b></td>
+              <td>LMM 🎬🎵</td>
+              <td>2025-05-28</td>
+              <td><b>11.4</b></td>
+              <td>6.2</td>
+              <td>9.5</td>
+              <td>21.9</td>
+              <td>2.0</td>
+              <td>15.7</td>
+              <td>15.0</td>                                 
+            </tr>
+            <tr class="open-source">
+              <td>17</td>
+              <td><b><a href="https://github.com/QwenLM/Qwen2-VL" class="ext-link">Qwen2.5 VL 7B</a></b></td>
+              <td>VLM 🎬</td>
+              <td>2025-05-28</td>
+              <td><b>11.2</b></td>
+              <td>7.8</td>
+              <td>11.9</td>
+              <td>25.0</td>
+              <td>2.0</td>
+              <td>12.0</td>
+              <td>12.5</td>                                 
+            </tr>
+            <tr class="open-source">
+              <td>18</td>
+              <td><b><a href="https://github.com/OpenGVLab/InternVL" class="ext-link">InternVL3 8B</a></b></td>
+              <td>VLM 🖼️</td>
+              <td>2025-05-28</td>
+              <td><b>7.8</b></td>
+              <td>6.2</td>
+              <td>6.0</td>
+              <td>14.1</td>
+              <td>1.0</td>
+              <td>11.1</td>
+              <td>10.0</td>                                 
+            </tr>
+            <tr class="open-source">
+              <td>19</td>
+              <td><b><a href="https://github.com/QwenLM/Qwen2-VL" class="ext-link">Qwen2.5 VL 3B</a></b></td>
+              <td>VLM 🎬</td>
+              <td>2025-05-28</td>
+              <td><b>7.6</b></td>
+              <td>9.4</td>
+              <td>3.6</td>
+              <td>18.8</td>
+              <td>1.0</td>
+              <td>9.3</td>
+              <td>7.5</td>                                 
+            </tr>
+            <tr class="open-source">
+              <td>20</td>
+              <td><b><a href="https://github.com/LLaVA-VL/LLaVA-NeXT" class="ext-link">LLaVA-NeXT-Video 7B</a></b></td>
+              <td>VLM 🎬</td>
+              <td>2025-05-28</td>
+              <td><b>5.0</b></td>
+              <td>1.6</td>
+              <td>11.9</td>
+              <td>6.2</td>
               <td>0.0</td>
-              <td>0.0</td>
-              <td>1.1</td>
-              <td>2.2</td>                                 
+              <td>5.6</td>
+              <td>5.0</td>                                 
             </tr>                                                    
         </table>
  
           <div>
-          <p>To submit your results to the leaderboard, please send to <a href="mailto:zikui@umd.edu">this email</a> with your result json files.</p>
-          </p>
+          <p><strong>Model Types:</strong> 💭 Reasoning • 🖼️ Image • 🎬 Video • 🎵 Audio • 🎭 Unified (Visual Understanding + Generation)</p>
+          <p>🎯 To submit your results to the leaderboard, please send to <a href="mailto:zikui@umd.edu">this email</a> with your result json files.</p>
           </div>
         </div>
  
@@ -672,30 +944,34 @@
           <p>
             One of MORSE-500's key innovations is its ability to systematically scale difficulty through programmatic control. The examples below demonstrate how task complexity can be increased while maintaining the core reasoning category.
           </p>
+          <p><center><strong>Scaling Methodology with Examples</strong></center></p>
+          <p>
+            To illustrate our scaling approach, consider the frozen lake environment: we can incrementally increase difficulty by expanding the maze size, adding more action options, introducing fog effects, or reducing the agent's visible range. Similarly, other tasks in our benchmark can be scaled by manipulating sequence length and other relevant parameters.
+          </p>
         </div>
       </div>
       <div id="results-carousel" class="carousel results-carousel">
         <div class="item item-blueshirt">
           <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/planning_reasoning_mazes_frozen_lake_correct_sequence_sz10.mp4"
+            <source src="./static/videos/frozen_lake_correct_sequence_v3_sz6_nofog.mp4"
                     type="video/mp4">
           </video>
         </div>
         <div class="item item-blueshirt">
           <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/planning_reasoning_mazes_frozen_lake_correct_sequence_sz10.mp4"
+            <source src="./static/videos/frozen_lake_correct_sequence_v3_sz10_nofog.mp4"
                     type="video/mp4">
           </video>
         </div>
         <div class="item item-blueshirt">
           <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/planning_reasoning_mazes_frozen_lake_correct_sequence_sz10.mp4"
+            <source src="./static/videos/frozen_lake_correct_sequence_v3_sz10_fog_vis4.mp4"
                     type="video/mp4">
           </video>
         </div>
         <div class="item item-blueshirt">
           <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/planning_reasoning_mazes_frozen_lake_correct_sequence_sz10.mp4"
+            <source src="./static/videos/frozen_lake_correct_sequence_v3_sz15_fog_vis2.mp4"
                     type="video/mp4">
           </video>
         </div>
@@ -704,19 +980,6 @@
   </div>
 </section>
  
- <!-- <div class="columns is-centered">
-  <div class="column is-full-width">
-    <h2 class="title is-3">Performance Results</h2>
-    <h3 class="title is-4">Difficulty Scaling</h3>
-    <div class="content has-text-justified">
-      <p>
-        One of MORSE-500's key innovations is its ability to systematically scale difficulty through programmatic control. The examples below demonstrate how task complexity can be increased while maintaining the core reasoning category.
-      </p>
-    </div>
-    
-  </div>
-</div> -->
-
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
