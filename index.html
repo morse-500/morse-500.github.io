@@ -8,8 +8,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MORSE-500: A Programmatically Controllable Video Benchmark to Stress-Test Multimodal Reasoning</title>
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script> -->
   <script>
     window.dataLayer = window.dataLayer || [];
 
@@ -259,16 +257,6 @@
                   <span>arXiv</span>
                 </a>
               </span>
-              <!-- Video Link. -->
-              <!-- <span class="link-block">
-                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
-                </a>
-              </span> -->
               <!-- Code Link. -->
               <span class="link-block">
                 <a href="https://github.com/morse-benchmark/morse-500"
@@ -284,7 +272,6 @@
                 <a href="https://huggingface.co/datasets/video-reasoning/morse-500"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
-                      <!-- <i class="far fa-images"></i> -->
                       <p style="font-size:18px">🤗</p>
                   </span>
                   <span>Data</span>
@@ -294,7 +281,6 @@
                 <a href="https://huggingface.co/datasets/video-reasoning/morse-500-view"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
-                      <!-- <i class="far fa-images"></i> -->
                       <p style="font-size:18px">🤗</p>
                   </span>
                   <span>Data Viewer</span>
@@ -320,10 +306,6 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <!-- <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
-                type="video/mp4">
-      </video> -->
       <h2 class="subtitle has-text-centered">
         <span class="dnerf">MORSE-500</span> provides 500 programmatically generated video instances across six reasoning categories: abstract, mathematical,  physical, planning, spatial, and temporal.
       </h2>
@@ -452,102 +434,6 @@
   </div>
 </section>
 
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <!-- <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Despite rapid advances in vision–language models (VLMs), current benchmarks for multimodal reasoning fall short in three key dimensions. First, they overwhelmingly rely on static images, failing to capture the temporal complexity of real-world environments. Second, they narrowly focus on mathematical problem-solving, neglecting the broader spectrum of reasoning skills—including abstract, physical, planning, spatial, and temporal capabilities—required for robust multimodal intelligence. Third, many benchmarks quickly saturate, offering limited headroom for diagnosing failure modes or measuring continued progress.
-          </p>
-          <p>
-            We introduce <span class="dnerf">MORSE-500</span> (Multimodal Reasoning Stress-test Environment), a video benchmark composed of <strong>500 fully scripted clips</strong> with embedded questions spanning <strong>six complementary reasoning categories</strong>. Each instance is programmatically generated using deterministic Python scripts (via Manim, Matplotlib, MoviePy), generative video models, and curated real footage. This script-driven design allows fine-grained control over visual complexity, distractor density, and temporal dynamics—enabling difficulty to be scaled systematically as models improve.
-          </p>
-          <p>
-            Unlike static benchmarks that become obsolete once saturated, MORSE-500 is built to evolve: its controllable generation pipeline supports the creation of arbitrarily challenging new instances, making it ideally suited for stress-testing next-generation models. Initial experiments with state-of-the-art systems—including various Gemini models and OpenAI o3—reveal substantial performance gaps across all categories, with particularly large deficits in abstract and planning tasks.
-          </p>
-        </div>
-      </div>
-    </div> -->
-    <!--/ Abstract. -->
-
-    <!-- Paper video. -->
-    <!-- <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div> -->
-    <!--/ Paper video. -->
-  </div>
-</section>
-
-
-<!-- <section class="section">
-  <div class="container is-max-desktop">
-
-    <div class="columns is-centered">
-
-      <div class="column">
-        <div class="content">
-          <h2 class="title is-3">Key Features</h2>
-          <p>
-            MORSE-500 addresses critical limitations in existing multimodal reasoning benchmarks through several key innovations:
-          </p>
-          <ul>
-            <li><strong>Temporal Complexity:</strong> Video-based tasks that require understanding dynamic sequences and causal relationships over time</li>
-            <li><strong>Diverse Reasoning:</strong> Six complementary categories spanning mathematical, abstract, spatial, temporal, physical, and planning reasoning</li>
-            <li><strong>Programmatic Control:</strong> Systematic difficulty scaling through parameterized generation scripts</li>
-            <li><strong>Embedded Questions:</strong> Questions integrated directly into video content, eliminating textual shortcuts</li>
-            <li><strong>Evolving Benchmark:</strong> Controllable generation pipeline for creating new challenging instances as models improve</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="column">
-        <h2 class="title is-3">Reasoning Categories</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <div class="reasoning-grid">
-              <div class="reasoning-item">
-                <strong>Mathematical (16.8%)</strong><br>
-                Arithmetic operations, algebraic relations, quantitative comparisons
-              </div>
-              <div class="reasoning-item">
-                <strong>Abstract (12.8%)</strong><br>
-                Pattern recognition, logical inference, symbolic reasoning
-              </div>
-              <div class="reasoning-item">
-                <strong>Spatial (21.6%)</strong><br>
-                Object relationships, spatial transformations, 3D reasoning
-              </div>
-              <div class="reasoning-item">
-                <strong>Temporal (16.0%)</strong><br>
-                Sequence understanding, causal inference over time
-              </div>
-              <div class="reasoning-item">
-                <strong>Physical (12.8%)</strong><br>
-                Object dynamics, causal interactions, physics laws
-              </div>
-              <div class="reasoning-item">
-                <strong>Planning (20.0%)</strong><br>
-                Multi-step reasoning, goal-directed problem solving
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-
 <section class="section">
         <div class="container">
             <div class="columns is-equal-height">
@@ -588,7 +474,7 @@
 
                             <div class="feature-card">
                                 <div class="feature-title">🛠️ Developer-Friendly</div>
-                                <p class="feature-description">A "-view" subset streams directly on <strong>Hugging Face</strong> for quick browsing and debugging</p>
+                                <p class="feature-description">A "<a href="https://huggingface.co/datasets/video-reasoning/morse-500-view" class="ext-link">-view</a>" subset streams directly on <strong>Hugging Face</strong> for quick browsing and debugging</p>
                             </div>
                         </div>
                     </div>
@@ -599,6 +485,7 @@
                     <h2 class="title is-3">Reasoning Categories</h2>
                     <div class="columns is-centered">
                         <div class="column content">
+                          <p><em>(porportion of data %)</em></p>
                             <div class="reasoning-grid">
                               <div class="reasoning-item">
                                     <strong>Abstract (12.8%)</strong><br>
