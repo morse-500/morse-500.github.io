@@ -20,8 +20,12 @@
     gtag('config', 'G-PYVRSFMDRL');
   </script>
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
+  <!-- Find fonts here https://fonts.google.com/ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Braah+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Braah+One&family=Honk&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
@@ -37,6 +41,9 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+  
+  <!-- Tailwind's space-x-* utilities apply horizontal margins (margin-left and margin-right) to the direct children of an element -->
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 
   <style>
         .best-score-text {
@@ -151,6 +158,35 @@
         #leaderboard {
           scroll-margin-top: 20px; /* Adjust based on any fixed headers */
         }
+
+        .morse-links-table {
+          /* Center the table horizontally within its parent container (e.g., the body) */
+          margin-left: auto;
+          margin-right: auto;
+
+          /* Optional: Center the table vertically if its parent container has a defined height */
+          /* and the parent is a flex container with align-items: center. You might need to adjust this based on your layout */
+
+          border-collapse: separate; /* Allows setting border-spacing */
+          border-spacing: 5px; /* Adjust the space between cells (e.g., 5px for less space) */
+        }
+
+        .morse-links-table td {
+          padding: 0; /* Remove default padding from table cells */
+        }
+
+        .morse-links-table img {
+          display: block; /* Ensures images don't have extra space below them */
+          max-width: 100%; /* Prevent images from overflowing container */
+          height: auto; /* Maintain aspect ratio */
+        }
+
+        .author-row {
+          margin-bottom: 5px; /* Add some spacing between rows */
+        }
+        .author-block:last-child {
+          margin-right: 0; /* Remove margin from the last author in a row */
+        }
     </style>
 </head>
 <body>
@@ -193,110 +229,106 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">MORSE-500: A Programmatically Controllable Video Benchmark to Stress-Test Multimodal Reasoning</h1>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="#">Zikui Cai</a>,</span>
-            <span class="author-block">
-              <a href="#">Andrew Wang</a>,</span>
-            <span class="author-block">
-              <a href="#">Anirudh Satheesh</a>,</span>
-            <span class="author-block">
-              <a href="#">Ankit Nakhawa</a>,</span>
-            <span class="author-block">
-              <a href="#">Hyunwoo Jae</a>,
-            </span>
-            <span class="author-block">
-              <a href="#">Keenan Powell</a>,
-            </span>
-            <span class="author-block">
-              <a href="#">Minghui Liu</a>,
-            </span>
-            <span class="author-block">
-              <a href="#">Neel Jay</a>,
-            </span>
-            <span class="author-block">
-              <a href="#">Sungbin Oh</a>,
-            </span>
-            <span class="author-block">
-              <a href="#">Xiyao Wang</a>,
-            </span>
-            <span class="author-block">
-              <a href="#">Yongyuan Liang</a>,
-            </span>
-            <span class="author-block">
-              <a href="#">Tom Goldstein</a>,
-            </span>
-            <span class="author-block">
-              <a href="#">Furong Huang</a>
-            </span>
-          </div>
+          <h1 class="title is-1 publication-title" style="font-family:'Braah One'" font-weight="500">MORSE-500</h1>
+          <!-- <h1 class="title is-1 publication-title" style="font-family:'Honk'" font-weight="500">MORSE-500</h1> -->
 
+          <h2 class="title is-2 publication-title">A Programmatically Controllable Video Benchmark to Stress-Test Multimodal Reasoning</h2>
           <div class="is-size-5 publication-authors">
-            <span class="author-block">University of Maryland, College Park</span>
-          </div>
-
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <!-- PDF Link. -->
-              <span class="link-block">
-                <a href="https://arxiv.org/pdf/xxxx"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
+            <div class="author-row space-x-8"> <!-- Added space-x-2 here -->
+              <span class="author-block">
+                <a href="#">Zikui Cai</a><sup> 1</sup>
               </span>
-              <span class="link-block">
-                <a href="https://arxiv.org/abs/xxxx"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
+              <span class="author-block">
+                <a href="#">Andrew Wang</a><sup> 1</sup>
               </span>
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a href="https://github.com/morse-benchmark/morse-500"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                </a>
+              <span class="author-block">
+                <a href="#">Anirudh Satheesh</a><sup> 1</sup>
               </span>
-              <!-- Dataset Link. -->
-              <span class="link-block">
-                <a href="https://huggingface.co/datasets/video-reasoning/morse-500"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <p style="font-size:18px">🤗</p>
-                  </span>
-                  <span>Data</span>
-                </a>
+              <span class="author-block">
+                <a href="#">Ankit Nakhawa</a><sup> 1</sup>
               </span>
-              <span class="link-block">
-                <a href="https://huggingface.co/datasets/video-reasoning/morse-500-view"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <p style="font-size:18px">🤗</p>
-                  </span>
-                  <span>Data Viewer</span>
-                </a>
-              </span>
-              <span class="link-block">
-                <a href="https://morse-500.github.io/#leaderboard" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <p style="font-size:18px">🏆</p>
-                  </span>
-                  <span>Leaderboard</span>
-                </a>
+              <span class="author-block">
+                <a href="#">Hyunwoo Jae</a><sup> 1</sup>
               </span>
             </div>
 
+            <div class="author-row space-x-3"> <!-- Added space-x-2 here -->
+              <span class="author-block">
+                <a href="#">Keenan Powell</a><sup> 1</sup>
+              </span>
+              <span class="author-block">
+                <a href="#">Minghui Liu</a><sup> 1</sup>
+              </span>
+              <span class="author-block">
+                <a href="#">Neel Jay</a><sup> 1</sup>
+              </span>
+              <span class="author-block">
+                <a href="#">Sungbin Oh</a><sup> 1</sup>
+              </span>
+              <span class="author-block">
+                <a href="#">Xiyao Wang</a><sup> 1</sup>
+              </span>
+              <span class="author-block">
+                <a href="#">Yongyuan Liang</a><sup> 1</sup>
+              </span>
+            </div>
+
+            <div class="author-row space-x-18"> <!-- Added space-x-2 here -->
+              <span class="author-block">
+                <a href="#">Tom Goldstein</a><sup> 1</sup>
+              </span>
+              <span class="author-block">
+                <a href="#">Furong Huang</a><sup> 1,2</sup>
+              </span>
+            </div>
           </div>
+
+          <div class="is-size-5 publication-authors space-x-8">
+            <span class="author-block"><sup>1 </sup>University of Maryland, College Park</span>
+            <span class="author-block"><sup>2 </sup>Capital One</span>
+          </div>
+
+          <br>
+          <table  class="morse-links-table">
+            <tr>
+              <td>
+                <a href="https://arxiv.org/pdf/2506.05523">
+                  <img src="https://img.shields.io/badge/📄 PDF-C52D2D?style=for-the-badge&logo=Adobeacrobat&logoColor=white" alt="PDF">
+                </a>
+              </td>
+              <td style="padding: 0;">
+                <a href="https://arxiv.org/abs/2506.05523">
+                  <img src="https://img.shields.io/badge/arXiv-2506.05523-b31b1b.svg?style=for-the-badge" alt="arXiv">
+                </a>
+              </td>
+              <td style="padding: 0;">
+                <a href="https://morse-500.github.io">
+                  <img src="https://img.shields.io/badge/Website-1E90FF?style=for-the-badge&logo=firefox&logoColor=ffffff&labelColor" alt="Website">
+                </a>
+              </td>
+              <td style="padding: 0;">
+                <a href="https://huggingface.co/datasets/video-reasoning/morse-500">
+                  <img src="https://img.shields.io/badge/Data-D5A848?style=for-the-badge&logo=huggingface&logoColor=ffffff&labelColor" alt="Data">
+                </a>
+              </td>
+              <td style="padding: 0;">
+                <a href="https://huggingface.co/datasets/video-reasoning/morse-500-view">
+                  <img src="https://img.shields.io/badge/View-D5A848?style=for-the-badge&logo=huggingface&logoColor=ffffff&labelColor" alt="Viewer">
+                </a>
+              </td>
+              <td style="padding: 0;">
+                <a href="https://github.com/morse-benchmark/morse-500">
+                  <img src="https://img.shields.io/badge/Code-000000?style=for-the-badge&logo=github&logoColor=white" alt="Code">
+                </a>
+              </td>
+              <td>
+                <a href="https://morse-500.github.io/#leaderboard">
+                  <img src="https://img.shields.io/badge/🏆 Leaderboard-FFD700?style=for-the-badge&logo=trophy&logoColor=black" alt="Leaderboard">
+                </a>
+              </td>
+            </tr>
+          </table>
+
         </div>
       </div>
     </div>
@@ -459,7 +491,7 @@
 
                             <div class="feature-card">
                                 <div class="feature-title">🎯 Diverse Categories</div>
-                                <p class="feature-description"><em>Abstract, Mathematical, Physical, Planning, Spatial, Temporal (+ Causal)</em> – evenly distributed across reasoning types that actually matter</p>
+                                <p class="feature-description">Spanning <em>Abstract, Mathematical, Physical, Planning, Spatial, Temporal (+ Causal)</em> – a vibrant mix of the reasoning types that matter</p>
                             </div>
 
                             <div class="feature-card">
@@ -474,7 +506,7 @@
 
                             <div class="feature-card">
                                 <div class="feature-title">🛠️ Developer-Friendly</div>
-                                <p class="feature-description">A "<a href="https://huggingface.co/datasets/video-reasoning/morse-500-view" class="ext-link">-view</a>" subset streams directly on <strong>Hugging Face</strong> for quick browsing and debugging</p>
+                                <p class="feature-description">A "<a href="https://huggingface.co/datasets/video-reasoning/morse-500-view" class="ext-link">-view</a>" subset streams directly on <strong>Hugging Face</strong>, making browsing and debugging smoother than a sunny afternoon</p>
                             </div>
                         </div>
                     </div>
@@ -821,7 +853,7 @@
  
           <div>
           <p><strong>Model Types:</strong> 💭 Reasoning • 🖼️ Image • 🎬 Video • 🎵 Audio • 🎭 Unified (Visual Understanding + Generation)</p>
-          <p>🎯 To submit your results to the leaderboard, please send to <a href="mailto:zikui@umd.edu">this email</a> with your result json files.</p>
+          <p>🎯 To submit your results to the leaderboard, please complete this <a href="https://forms.gle/E51StgRYYqUsL93p6">form</a>.</p>
           </div>
         </div>
  
@@ -884,7 +916,7 @@
     <pre><code>@article{cai2025morse500,
   title={MORSE-500: A Programmatically Controllable Video Benchmark to Stress-Test Multimodal Reasoning},
   author={Cai, Zikui and Wang, Andrew and Satheesh, Anirudh and Nakhawa, Ankit and Jae, Hyunwoo and Powell, Keenan and Liu, Minghui and Jay, Neel and Oh, Sungbin and Wang, Xiyao and Liang, Yongyuan and Goldstein, Tom and Huang, Furong},
-  journal={arXiv preprint arXiv:xxxx},
+  journal={arXiv preprint arXiv:2506.05523},
   year={2025}
 }</code></pre>
   </div>
